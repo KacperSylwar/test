@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+window.onload = Laduj;
+function Laduj(){
+  document.forms['dodawanie_posta'].onsubmit = Verify;
+}
+function Verify(){
+  var wyrazenie2 = new RegExp("^[A-Z-zóąśłżźćńÓĄŚŁŻŹĆŃ][a-z-zóąśłżźćńÓĄŚŁŻŹĆŃ]{2,20} [A-Z-zóąśłżźćńÓĄŚŁŻŹĆŃ][a-z-zóąśłżźćńÓĄŚŁŻŹĆŃ]{1,25}$");
+  var error = false;
+
+    if(wyrazenie2.test(im)==false)  {
+    document.forms['dodawanie_posta'].im.style.border = "2px solid #FF0000";
+    alert('Podałeś błędne imię i nazwisko !');
+    error = true;
+
+  }
+
+      if(wyrazenie2.test(im)==true)  {
+    document.forms['dodawanie_posta'].im.style.border = "2px solid green";
+
+
+  }
+
+
+  if (error) {
+    return false;
+  }
+
+}
+
+    </script>
+</head>
+<body>
+    <form action="#" method="post" name="dodawanie_posta">
+        <input type="text" name="im" />
+        <button type="submit" Click="Verify()" />   />
+    </form>
+Verify()
+
+</body>
+</html>
